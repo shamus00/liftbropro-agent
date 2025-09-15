@@ -1,0 +1,18 @@
+{
+  "name":"propose_next_week_plan",
+  "description":"Generate next-week training inside track rules and overlays.",
+  "parameters":{
+    "type":"object",
+    "properties":{
+      "user_id":{"type":"string"},
+      "track":{"type":"string","enum":["5x5","madcow","hypertrophy"]},
+      "target_days":{"type":"integer","minimum":2,"maximum":6},
+      "readiness":{"type":"object","properties":{
+        "sleep_h":{"type":"number"},
+        "soreness":{"type":"integer","minimum":0,"maximum":10},
+        "asthma_status":{"type":"string","enum":["clear","mild","flare"]}
+      },"required":["sleep_h","soreness","asthma_status"]}
+    },
+    "required":["user_id","track","target_days","readiness"]
+  }
+}

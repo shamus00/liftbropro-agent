@@ -1,0 +1,93 @@
+{
+  "name": "suggest_session_mods",
+  "description": "Suggest modifications to today's planned session based on the user's daily readiness survey (sleep, soreness, asthma, stress, pain, etc).",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": "string",
+        "description": "Unique identifier of the user in the system."
+      },
+      "planned_session": {
+        "type": "string",
+        "description": "The name or ID of the planned training session (e.g., 'madcow_day1')."
+      },
+      "readiness_today": {
+        "type": "object",
+        "description": "Daily readiness survey results provided by the user.",
+        "properties": {
+          "sleep_h": {
+            "type": "number",
+            "description": "Hours of sleep last night."
+          },
+          "soreness": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10,
+            "description": "Self-reported muscle soreness on a scale of 0–10."
+          },
+          "asthma_status": {
+            "type": "string",
+            "enum": ["clear", "mild", "flare"],
+            "description": "Current asthma status reported by the user."
+          },
+          "stress": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10,
+            "description": "Self-reported stress level (optional)."
+          },
+          "motivation": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10,
+            "description": "Self-reported motivation level (optional)."
+          },
+          "pain": {
+            "type": "object",
+            "description": "Pain report if applicable.",
+            "properties": {
+              "area": {
+                "type": "string",
+                "description": "Body area experiencing pain."
+              },
+              "score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 10,
+                "description": "Pain severity score (0–10)."
+              },
+              "red_flags": {
+                "type": "boolean",
+                "description": "Whether the pain includes red flag symptoms."
+              }
+            }
+          },
+          "steps_24h": {
+            "type": "number",
+            "description": "Steps recorded in the last 24 hours (optional)."
+          },
+          "resting_hr": {
+            "type": "number",
+            "description": "Resting heart rate in bpm (optional)."
+          },
+          "hrv": {
+            "type": "number",
+            "description": "Heart rate variability score (optional)."
+          },
+          "nutrition_adherence": {
+            "type": "string",
+            "enum": ["low", "medium", "high"],
+            "description": "Self-reported nutrition adherence (optional)."
+          },
+          "protein_hit": {
+            "type": "boolean",
+            "description": "Whether the user met protein intake goals yesterday (optional)."
+          }
+        },
+        "required": ["sleep_h", "soreness", "asthma_status"]
+      }
+    },
+    "required": ["user_id", "planned_session", "readiness_today"]
+  }
+}

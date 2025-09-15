@@ -1,0 +1,15 @@
+name: ai-strength-coach
+model: gemini-1.5-pro
+system_instruction_file: config/system.txt
+developer_instruction_file: config/developer.txt
+tools:
+  - name: propose_next_week_plan
+    type: http
+    method: POST
+    endpoint: https://us-central1-<PROJECT_ID>.cloudfunctions.net/propose_next_week_plan
+    schema_file: config/tools/propose_next_week_plan.json
+  - name: suggest_session_mods
+    type: http
+    method: POST
+    endpoint: https://us-central1-<PROJECT_ID>.cloudfunctions.net/suggest_session_mods
+    schema_file: config/tools/suggest_session_mods.json

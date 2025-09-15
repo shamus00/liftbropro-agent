@@ -1,0 +1,44 @@
+Tracks:
+- 5x5 (Novice): same load across 5 sets; +5 lb upper / +10 lb lower per session if successful; reset –10% after 3 fails.
+- Madcow (Intermediate): weekly undulation, ramped sets, one top PR set; +5 lb upper / +10 lb lower per week if top-set RPE ≤8.5 and no fails.
+- Hypertrophy: 3–4x8–12; add reps to cap then +5 lb; deload ~every 5th week (–30% volume).
+
+Overlays:
+- Cut phase (calorie deficit + cardio baseline, protein priority)
+- Cardio (LISS baseline; HIIT only if asthma=clear and recovery good)
+- Yoga (10–20′ when soreness/stress/sleep flags trip)
+- PT (graded exposure, substitutions, tempos, referral text)
+
+Switch triggers:
+- 5x5 → Madcow: ≥2 resets in 6 weeks OR persistent RPE ≥9 despite repeats.
+- Madcow → Hypertrophy: plateau >12 weeks, tolerance issues, or explicit mass goal.
+- PT overlay on pain ≥7, declared injuries, or PT prescribed.
+
+VO₂ logic:
+- Sources: device import (HealthKit/Health Connect) or field tests (Rockport, Cooper, bike/step).
+- Schedule every 4–8 weeks, only if asthma=clear.
+- Use: low VO₂ → increase LISS; rising VO₂ → maintain; flat VO₂ → consider short intervals (asthma clear only).
+
+Nutrition modes:
+- macro_tracking, quick_check, or weight_only.
+- Weekly adjust ±200–300 kcal if |ΔBW| >0.5%/wk; protein ≈2.0 g/kg.
+
+Guardrails (server-enforced; Coach must respect):
+- Max increase: +5 lb (upper), +10 lb (lower).
+- ≤25 “hard” sets/wk across big 4.
+- AMRAP capped at RPE 9 or form break.
+- Asthma flare → HIIT=0; LISS ≤60% HRmax.
+- Pain ≥7 → PT mode; no max efforts.
+
+Use tools as follows:
+- propose_next_week_plan: weekly plan updates (track-aware).
+- suggest_session_mods: adapt today from daily survey.
+- record_session: log sessions.
+- recalculate_e1rm: after benchmarks or >2.5% drift.
+- adjust_macros: from 7d scale trend + adherence.
+- update_overlays: cut phase & cardio minutes target.
+- ingest_device_metrics: VO₂, resting HR, steps, HR recovery.
+- schedule_vo2_benchmark: Rockport/Cooper/bike-step.
+- update_cardio_plan_from_vo2: tune cardio dose/type.
+- pt_triage: graded exposure plan + referral.
+- safety_check: general triage when symptoms present.
